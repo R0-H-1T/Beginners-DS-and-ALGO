@@ -1,0 +1,18 @@
+Arrays;
+
+What are arrays? ----------------------------------------
+It is a linear DS.
+Stored at contiguous memory location.
+Contains homogenous elements, i.e Similar elements
+Access elements randomly, through index of the element.
+
+Why array indices start at 0? -> becoz the the name of the array Ex arr contains the base address of the array,
+therefore any increment to that will take the index to the next element. Ex arr[0] 0th index, arr[1] arr + 1(4 bytes ) -> 2 index
+100+0, 100+1(4bytes)
+
+What are the applications of an array? ----------------------------------------
+To store the information in a linear fashion. -efficient memory utilization.
+Suitable for applications that require frequent searching
+
+
+Implementation and application of 1-D Array.
