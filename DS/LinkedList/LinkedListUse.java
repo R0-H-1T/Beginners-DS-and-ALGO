@@ -2,7 +2,7 @@ package com.DSA.DS.LinkedList;
 
 import java.util.Scanner;
 
-public class LinkedListUse extends LinkedList1{
+public class LinkedListUse extends LinkedList1 {
     public static void main(String[] args) {
 
 
@@ -11,7 +11,7 @@ public class LinkedListUse extends LinkedList1{
         Node list1 = createList(sc.nextInt());
 
 
-        while(true){
+        while (true) {
             System.out.println("Enter option------------\n1.Display\n2.Find length\n3.Insert Node");
             System.out.println("4.Remove consec dups\n5.Delete Node\n6.Reverse LL\n7.Increment data of nodes.\n8.Find mid node\n9.Exit------------");
             switch (sc.nextInt()) {
@@ -28,7 +28,7 @@ public class LinkedListUse extends LinkedList1{
                 }
                 case 6 -> list1 = reverse(list1);
                 case 7 -> incrementNode(list1);
-                case 8 -> System.out.println("Mid Node is: "+findMid(list1));
+                case 8 -> System.out.println("Mid Node is: " + findMid(list1));
                 case 9 -> System.exit(0);
                 default -> {
                     System.out.println("Invalid option selected");
