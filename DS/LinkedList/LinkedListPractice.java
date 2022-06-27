@@ -1,59 +1,50 @@
 package com.DSA.DS.LinkedList;
 
+import java.util.Scanner;
 
+public class LinkedListPractice extends LinkedList1{
+    public static Node  mergeSortedLL(Node head1, Node head2){
+        Node temp1 = head1;
+        Node temp2 = head2;
+        Node head = null;
+        Node tail = null;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*public class LinkedListPractice {
-    public Node rmConsecutiveDuplicates(Node head){
-        // [3,3,3,2,2,5,3] => [3,2,5,3]
-        Node temp = head;
-        Node curNode = head.next;
-        if(temp==null) return head;
-
-        while(curNode!=null){
-
-            if(temp.data != curNode.data) {
-                temp.next = curNode;
-                temp = temp.next;
-            }
-            curNode = curNode.next;
-
+        if(temp1.data < temp2.data){
+            head = tail = temp1;
+            temp1 = temp1.next;
+        }else{
+            head = tail = temp2;
+            temp2 = temp2.next;
         }
 
+        while(temp1!=null && temp2!=null){
+            if(temp1.data < temp2.data){
+                tail.next = temp1;
+                tail = temp1;
+                temp1 = temp1.next;
+            }else{
+                tail.next = temp2;
+                tail = temp2;
+                temp2 = temp2.next;
+            }
+        }
+
+        if(temp1 == null) tail.next = temp2;
+        else if(temp2 == null) tail.next = temp1;
+
+        return head;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Head1:  "); Node head1 = createList(sc.nextInt());
+        System.out.print("Head2:  "); Node head2 = createList(sc.nextInt());
 
 
-//        while(p!=null){
-//            System.out.print(p.data+" ");
-//            p=p.next;
-//        }
-        return temp;
+        System.out.println("\nmerged and sorted");
+        Node sorted = mergeSortedLL(head1, head2);
+        System.out.println();
+        printNodes(sorted);
+
     }
 }
-*/
