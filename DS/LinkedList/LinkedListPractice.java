@@ -3,6 +3,65 @@ package com.DSA.DS.LinkedList;
 import java.util.Scanner;
 
 public class LinkedListPractice extends LinkedList1{
+
+    // LINKED LIST RECURSION ----------------------------------------------------------------------------------------------------
+
+    // 1. print LL using recursion
+    public static void recur_printLL(Node head){
+        if(head==null) return;
+        System.out.print(head.data+" ");
+        recur_printLL(head.next);
+    }
+
+    // 2. delete node using recursion
+    public static Node recur_deleteAtPos(Node head, int pos){
+        if(head == null) return head;
+        if(pos == 1) return head.next;
+
+        Node Rhead = recur_deleteAtPos(head.next, pos-1);
+        head.next = Rhead;
+
+        return head;
+        /*  if pos = 3
+            [1, 2, 3, 4, 5]
+            1st call checks if pos == 1(4) => no, calls itself(head.next,pos-1[2])
+            [2, 3, 4, 5]
+            2nd call checks if pos == 1(2) => no, calls itself(head.next),pos-1[1])
+            [3, 4, 5]
+            3rd call checks if pos == 1(1) => yes, return head.next @of_next_node to Rhead;
+
+            */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // LINKED LIST RECURSION END ----------------------------------------------------------------------------------------------------
+
     public static Node  mergeSortedLL(Node head1, Node head2){
         Node temp1 = head1;
         Node temp2 = head2;
@@ -36,15 +95,27 @@ public class LinkedListPractice extends LinkedList1{
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        /* MERGE SORTED LLL ---------------------------------------------------
+        /*Scanner sc = new Scanner(System.in);
         System.out.print("Head1:  "); Node head1 = createList(sc.nextInt());
         System.out.print("Head2:  "); Node head2 = createList(sc.nextInt());
-
-
         System.out.println("\nmerged and sorted");
         Node sorted = mergeSortedLL(head1, head2);
         System.out.println();
         printNodes(sorted);
+        --------------------------------------------------------------------- */
+
+        /* RECUR PRINT NODES
+        Node list1 = createList(4);
+        recur_printLL(list1);
+        -------------------------------------------------------------------- */
+
+        /* RECUR DELETE NODE AT POS
+        Node list1 = createList(5);
+        printNodes(list1);
+        System.out.println();
+        printNodes(recur_deleteAtPos(list1, 5));
+        ----------------------------------------------------------------------*/
 
     }
 }
