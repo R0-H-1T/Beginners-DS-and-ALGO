@@ -44,6 +44,28 @@ public class LinkedList1 {
         return count;
     }
 
+    public static int findMid(Node head){
+       /* Node temp = head;
+        int count = len(temp);
+        if(count>2){
+            int i = 0;
+            Node n = head;
+            while(i<count/2){
+                n = n.next; i++;
+            }
+            return n.data;
+        }
+        return 0;*/
+
+        Node fast = head;
+        Node slow = head;
+        while(fast.next != null && fast.next.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.data;
+    }
+
     public static Node insertNode(Node head, int pos){
         Scanner sc = new Scanner(System.in);
         Node temp = head;
