@@ -46,7 +46,14 @@ public class LinkedListPractice extends LinkedList1{
         return temp;
 
         /*
+            optimized time complexity
+            if(head == null || head.next ==null) return head;
+            Node nhead = recur_reverseLL(head.next);
+            Node tail = head.next;
+            tail.next = head;
+            head.next = null;
 
+            return nhead;
          */
     }
 
