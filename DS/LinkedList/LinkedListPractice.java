@@ -30,25 +30,25 @@ public class LinkedListPractice extends LinkedList1{
             [3, 4, 5]
             3rd call checks if pos == 1(1) => yes, return head.next @of_next_node to Rhead;
 
-            */
+        */
     }
 
+    // 3. reverse a LL recursion.
+    public  static Node recur_reverseLL(Node head){
+        if(head == null || head.next ==null) return head;
+        Node nhead = recur_reverseLL(head.next);
+        Node temp = nhead;
+        while(nhead.next != null){
+            nhead = nhead.next;
+        }
+        nhead.next = head;
+        head.next = null;
+        return temp;
 
+        /*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         */
+    }
 
 
 
@@ -116,6 +116,12 @@ public class LinkedListPractice extends LinkedList1{
         System.out.println();
         printNodes(recur_deleteAtPos(list1, 5));
         ----------------------------------------------------------------------*/
+
+        Node list1 = createList(5);
+        printNodes(list1);
+        System.out.println();
+        list1 = recur_reverseLL(list1);
+        printNodes(list1);
 
     }
 }
