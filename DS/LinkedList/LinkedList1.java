@@ -44,7 +44,7 @@ public class LinkedList1 {
         return count;
     }
 
-    public static int findMid(Node head){
+    public static Node findMid(Node head){
        /* Node temp = head;
         int count = len(temp);
         if(count>2){
@@ -63,7 +63,7 @@ public class LinkedList1 {
             fast = fast.next.next;
             slow = slow.next;
         }
-        return slow.data;
+        return slow;
     }
 
     public static Node insertNode(Node head, int pos){
