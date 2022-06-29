@@ -46,7 +46,7 @@ public class LinkedListPractice extends LinkedList1{
         return temp;
 
         /*
-            optimized time complexity
+            //optimized time complexity
             if(head == null || head.next ==null) return head;
             Node nhead = recur_reverseLL(head.next);
             Node tail = head.next;
@@ -56,6 +56,23 @@ public class LinkedListPractice extends LinkedList1{
             return nhead;
          */
     }
+
+    // 4. Merge sort
+    public static Node mergeSort(Node head){
+        if(head == null || head.next == null) return head;
+        Node mid = findMid(head);
+        Node first = head;
+        Node second = mid.next;
+        mid.next = null;
+
+        Node x = mergeSort(first);
+        Node y = mergeSort(second);
+
+        Node merged = mergeSortedLL(x, y);
+
+        return merged;
+    }
+
 
 
 
@@ -124,11 +141,19 @@ public class LinkedListPractice extends LinkedList1{
         printNodes(recur_deleteAtPos(list1, 5));
         ----------------------------------------------------------------------*/
 
+        /* RECUR REVERSE LL
         Node list1 = createList(5);
         printNodes(list1);
         System.out.println();
         list1 = recur_reverseLL(list1);
         printNodes(list1);
+        ----------------------------------------------------------------------*/
 
+        /* MERGE SORT ON LL */
+        Node list1 = createList(1);
+        printNodes(list1);
+        list1 = mergeSort(list1);
+        System.out.println();
+        printNodes(list1);
     }
 }
