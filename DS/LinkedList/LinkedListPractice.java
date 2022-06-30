@@ -149,11 +149,12 @@ public class LinkedListPractice extends LinkedList1{
         printNodes(list1);
         ----------------------------------------------------------------------*/
 
-        /* MERGE SORT ON LL */
+        /* MERGE SORT ON LL
         Node list1 = createList(1);
         printNodes(list1);
         list1 = mergeSort(list1);
         System.out.println();
         printNodes(list1);
+        -----------------------------------------------------------------------*/
     }
 }
