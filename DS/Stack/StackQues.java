@@ -17,6 +17,6 @@ public class StackQues {
         return st.isEmpty();
     }
     public static void main(String[] args) {
-        //international reynolds racer gell, it is good to have
+
     }
 }
