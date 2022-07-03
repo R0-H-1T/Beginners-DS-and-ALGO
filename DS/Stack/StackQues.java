@@ -7,8 +7,8 @@ public class StackQues {
         Stack<Character> st = new Stack<>();
 
         for(int i=0; i<str.length(); i++){
-            if(str.charAt(i) == ')'){
-                st.push(')');
+            if(str.charAt(i) == '('){
+                st.push('(');
             }else{
                 if(st.isEmpty()) return false;
                 else st.pop();
@@ -17,6 +17,7 @@ public class StackQues {
         return st.isEmpty();
     }
     public static void main(String[] args) {
-
+        String str = "(())";
+        System.out.println(balancedParanthesis(str));
     }
 }
