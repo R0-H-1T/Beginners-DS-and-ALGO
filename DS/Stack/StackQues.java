@@ -60,10 +60,34 @@ public class StackQues {
         }
         return ans;
     }
-    public static void main(String[] args) {
-        int[] arr = {34, 86, 21, 45, 98, 70};
-        for(int n : stockSpan(arr)){
-            System.out.print(n+" ");
+
+    static void reverseStack(Stack<Integer> st){
+        Stack<Integer> st1 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
+        while(!st.isEmpty()){
+            st1.push(st.pop());
         }
+        while(!st1.isEmpty()){
+            st2.push(st1.pop());
+        }
+        while(!st2.isEmpty()){
+            st.push(st2.pop());
+        }
+    }
+    public static void main(String[] args) {
+        //Stock Span
+//        int[] arr = {34, 86, 21, 45, 98, 70};
+//        for(int n : stockSpan(arr)){
+//            System.out.print(n+" ");
+//        }
+
+        //Reverse Stack
+//        Stack<Integer> st = new Stack<>();
+//        st.push(1);
+//        st.push(2);
+//        st.push(3);
+//        st.push(4);
+//        reverseStack(st);
+//        System.out.println(st.peek());
     }
 }
