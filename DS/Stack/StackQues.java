@@ -1,5 +1,7 @@
 package com.DSA.DS.Stack;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class StackQues {
@@ -37,12 +39,31 @@ public class StackQues {
 
         return count;
     }
+
+    static int[] stockSpan(int arr[]){
+        if(arr.length == 0) return arr;
+
+        Stack<Integer> st = new Stack<>();
+        int[] ans = new int[arr.length];
+        st.push(0);
+        ans[0] = 1;
+
+        for(int i=1; i<arr.length; i++){
+            int currElem = arr[i];
+            while(!st.isEmpty() && currElem>arr[st.peek()]){
+                st.pop();
+            }
+            if(st.isEmpty()) ans[i]=i+1;
+            else ans[i]=i-st.peek();
+
+            st.push(i);
+        }
+        return ans;
+    }
     public static void main(String[] args) {
-        String str = "(())";
-        System.out.println(balancedParenthesis(str));
-
-        str = ")((("; // => 3 | str="()()"=>0;| str="()(("=> 1
-
-        System.out.println(minBracketReversal(str));
+        int[] arr = {34, 86, 21, 45, 98, 70};
+        for(int n : stockSpan(arr)){
+            System.out.print(n+" ");
+        }
     }
 }
