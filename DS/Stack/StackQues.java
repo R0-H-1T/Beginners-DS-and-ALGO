@@ -5,6 +5,45 @@ import java.util.List;
 import java.util.Stack;
 
 public class StackQues {
+
+    //--------------  MEDIUM --------------------------------------------
+    /*
+    *
+    *
+    * */
+    static int areaOfHistogram(int[] arr){
+        int n = arr.length;
+        Stack<Integer> st = new Stack<>();
+        int i = 0, max_area = 0;
+        while(i<n){
+            if(st.isEmpty() || arr[i]>=arr[st.peek()]) st.push(i++);
+            else{
+                int x = st.pop();
+                int rightIndex = i;
+                int leftIndex = st.isEmpty()? 0 : st.peek();
+                int area = st.isEmpty()? arr[x]*rightIndex : arr[x]*(rightIndex-leftIndex-1);
+                max_area = Math.max(area, max_area);
+            }
+        }
+        while(!st.isEmpty()){
+            int x = st.pop();
+            int rightIndex = i;
+            int leftIndex = st.isEmpty()? 0 : st.peek();
+            int area = st.isEmpty()? arr[x]*rightIndex : arr[x]*(rightIndex-leftIndex-1);
+            max_area = Math.max(area, max_area);
+        }
+        return max_area;
+    }
+
+
+
+
+
+
+
+
+
+    // <---------------------------------------------------------------------------->
     static boolean balancedParenthesis(String str){
         Stack<Character> st = new Stack<>();
 
@@ -89,5 +128,11 @@ public class StackQues {
 //        st.push(4);
 //        reverseStack(st);
 //        System.out.println(st.peek());
+
+        //Medium -------------------------------------------->
+        //max area of histogram
+        int[] arr = {6, 1, 5, 4, 5, 2, 6};
+        int[] arr1 = {4, 5, 2, 6};
+        System.out.println(areaOfHistogram(arr1));
     }
 }
