@@ -1,6 +1,7 @@
 package com.DSA.DS.Stack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -8,7 +9,7 @@ public class StackQues {
 
     //--------------  MEDIUM --------------------------------------------
     /*
-    *
+    *   in linear time
     *
     * */
     static int areaOfHistogram(int[] arr){
@@ -35,8 +36,36 @@ public class StackQues {
         return max_area;
     }
 
-
-
+    /*
+    *   Next greater element
+    *   Ex arr = [23, 45, 3, 81, 67] => ans = [2, 3, 3, -1, -1]
+    *
+    *  1.   If the stack is not empty push the index of the element into the stack and increment i.
+    *  2.   If the element is smaller than the element present in the stack, push the index of the elem.
+    *           and increment i,
+    *       else (i.e elem is greater) pop the index of the elem and assign the value to the index.
+    *           Keep checking and assigning it the index if the value is greater. [LOOP]
+    *  3.   After traversing through the whole array, check if the stack is empty.
+    *       if the stack is not empty, then assign the value -1 to the indices and keep popping the elem
+            from teh stack in a loop [LOOP]
+    *
+    * */
+    static int[] nextGreaterNum(int arr[]){
+        Stack<Integer> st = new Stack<>();
+        int[] ans = new int[arr.length];
+        int i = 0;
+        while(i < arr.length){
+            if(st.isEmpty() || arr[st.peek()] >= arr[i]) st.push(i++);
+            else{
+                while(!st.isEmpty() && arr[st.peek()] < arr[i])
+                    ans[st.pop()] = arr[i];
+            }
+        }
+        while(!st.isEmpty()){
+            ans[st.pop()] = -1;  //if the stack is not empty then there is no
+        }
+        return ans;
+    }
 
 
 
@@ -131,8 +160,12 @@ public class StackQues {
 
         //Medium -------------------------------------------->
         //max area of histogram
-        int[] arr = {6, 1, 5, 4, 5, 2, 6};
-        int[] arr1 = {4, 5, 2, 6};
-        System.out.println(areaOfHistogram(arr1));
+        //int[] arr = {6, 1, 5, 4, 5, 2, 6};
+        //int[] arr1 = {4, 5, 2, 6};
+        //System.out.println(areaOfHistogram(arr1));
+
+        //next greater element
+        int[] arr = {11, 2, 1, 3, 21};
+        System.out.println(Arrays.toString(nextGreaterNum(arr)));
     }
 }
