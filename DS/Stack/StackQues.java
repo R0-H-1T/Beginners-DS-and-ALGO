@@ -67,7 +67,9 @@ public class StackQues {
         return ans;
     }
 
-
+    /*
+        Maximum rectangular area
+     */
 
 
 
