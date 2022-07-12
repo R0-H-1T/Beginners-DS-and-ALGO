@@ -15,22 +15,28 @@ public class QueueArray {
     public int size(){
         return size;
     }
-    public int front(){
+    public int front() throws QueueException{
+        if(size == 0){
+            throw new QueueException();
+        }
         return arr[front];
     }
-    public void enqueue(int n) throws QueueFullException{
+    public void enqueue(int n) throws QueueException{
         if(size == arr.length){
-            throw new QueueFullException();
+            throw new QueueException();
         }
         if(size == 0) front++;
-        arr[++rear] = n;
+        rear++;
+        if(rear == arr.length) rear = 0;
+        arr[rear] = n;
         size++;
     }
-    public int dequeue() throws QueueFullException{
+    public int dequeue() throws QueueException{
         if(size == 0){
             rear = front = -1;
-            throw new QueueFullException();
+            throw new QueueException();
         }
+        if(front == arr.length) front = 0;
         size--;
         return arr[front++];
     }
