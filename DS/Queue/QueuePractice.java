@@ -13,6 +13,8 @@ class StackUsingTwoQueues {
         q1.add(n);
     }
     public int pop(){
+        if(q1.isEmpty()) return -1;
+
         while(q1.size() > 1){
             q2.add(q1.poll());
         }
@@ -62,7 +64,7 @@ class QueueUsingTwoStacks {
         s1.push(n);
     }
     public int dequeue(){
-
+        if(s1.isEmpty()) return -1;
         while(s1.size() > 1){
             s2.push(s1.pop());
         }
@@ -122,4 +124,11 @@ public class QueuePractice {
         System.out.println("Queue Using two stack");
         main.queueUsingStacks();
     }
+
+    public void reverseQueue(Queue<Integer> q1){
+        Stack<Integer> s1 = new Stack<>();
+        while(!q1.isEmpty()) s1.push(q1.poll());
+        while(!s1.isEmpty()) q1.add(s1.pop());
+    }
+
 }
