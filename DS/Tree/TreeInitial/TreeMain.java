@@ -51,8 +51,6 @@ public class TreeMain {
 //        n1.left = n3;
 //        n2.left = n4;
 
-
-
     }
 }
 
