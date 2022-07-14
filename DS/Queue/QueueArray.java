@@ -1,6 +1,7 @@
 package com.DSA.DS.Queue;
 
 import java.util.Queue;
+import java.util.Stack;
 
 public class QueueArray {
     private int arr[], size, front, rear;
@@ -40,7 +41,5 @@ public class QueueArray {
         size--;
         return arr[front++];
     }
-    public static void main(String[] args) {
 
-    }
 }
