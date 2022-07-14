@@ -37,8 +37,16 @@ public class TreeMain {
         printTreeNodes(root.right);
     }
     public static void main(String[] args) {
+
+        TreePractice t1 = new TreePractice();
         TreeNode<Integer> root = treeInput(true, 0, true);
+        System.out.println(t1.numberOfNodes(root));
         printTreeNodes(root);
+
+
+
+
+
 
 //        TreeNode<Integer> root = new TreeNode<>(2);
 //        TreeNode<Integer> n1 = new TreeNode<>(99);
