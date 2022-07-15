@@ -15,7 +15,7 @@ public class TreePractice {
     // level-order =>
     public void preOrderTraversal(TreeNode<Integer> root){
         if(root == null) return;
-        System.out.println(root.data);
+        System.out.print(root.data+" ");
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
@@ -23,12 +23,12 @@ public class TreePractice {
         if(root == null) return;
         postOrderTraversal(root.left);
         postOrderTraversal(root.right);
-        System.out.println(root.data);
+        System.out.print(root.data+" ");
     }
     public void inOrderTraversal(TreeNode<Integer> root){
         if(root == null) return;
         inOrderTraversal(root.left);
-        System.out.println(root.data);
+        System.out.print(root.data+" ");
         inOrderTraversal(root.right);
     }
 }
