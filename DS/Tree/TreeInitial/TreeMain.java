@@ -38,14 +38,19 @@ public class TreeMain {
     }
     public static void main(String[] args) {
 
-        TreePractice t1 = new TreePractice();
+        //TreePractice t1 = new TreePractice();
+        //TreeNode<Integer> root = treeInput(true, 0, true);
+        //System.out.println(t1.numberOfNodes(root));
+        //printTreeNodes(root);
+
+        TreePractice t2 = new TreePractice();
         TreeNode<Integer> root = treeInput(true, 0, true);
-        System.out.println(t1.numberOfNodes(root));
-        printTreeNodes(root);
-
-
-
-
+        System.out.print("Preorder: ");
+        t2.preOrderTraversal(root);
+        System.out.print("\nPostorder: ");
+        t2.postOrderTraversal(root);
+        System.out.print("\nInorder: ");
+        t2.inOrderTraversal(root);
 
 
 //        TreeNode<Integer> root = new TreeNode<>(2);
