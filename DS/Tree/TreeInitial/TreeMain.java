@@ -58,7 +58,6 @@ public class TreeMain {
 //        TreeNode<Integer> n2 = new TreeNode<>(20);
 //        TreeNode<Integer> n3 = new TreeNode<>(12);
 //        TreeNode<Integer> n4 = new TreeNode<>(3);
-//
 //        root.left = n1;
 //        root.right = n2;
 //        n1.left = n3;
