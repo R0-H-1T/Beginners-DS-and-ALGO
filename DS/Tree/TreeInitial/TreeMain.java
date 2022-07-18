@@ -45,14 +45,18 @@ public class TreeMain {
 
         TreePractice t2 = new TreePractice();
         TreeNode<Integer> root = treeInput(true, 0, true);
-        System.out.print("Preorder: ");
-        t2.preOrderTraversal(root);
-        System.out.print("\nPostorder: ");
-        t2.postOrderTraversal(root);
-        System.out.print("\nInorder: ");
-        t2.inOrderTraversal(root);
-        System.out.println();
-        System.out.println("Largest node in tree: "+t2.largestNodeInTree(root));
+        //--------------------HEIGHT OF TREE ---------------------------------
+        System.out.println(t2.heightOfTree(root));
+
+        //---------------TRAVERSALS--------------------
+//        System.out.print("Preorder: ");
+//        t2.preOrderTraversal(root);
+//        System.out.print("\nPostorder: ");
+//        t2.postOrderTraversal(root);
+//        System.out.print("\nInorder: ");
+//        t2.inOrderTraversal(root);
+//        System.out.println();
+//        System.out.println("Largest node in tree: "+t2.largestNodeInTree(root));
 
 //        TreeNode<Integer> root = new TreeNode<>(2);
 //        TreeNode<Integer> n1 = new TreeNode<>(99);
