@@ -31,4 +31,11 @@ public class TreePractice {
         System.out.print(root.data+" ");
         inOrderTraversal(root.right);
     }
+    public int largestNodeInTree(TreeNode<Integer> root){
+        if(root == null) return 0;
+        int x = largestNodeInTree(root.left);
+        int y = largestNodeInTree(root.right);
+
+        return Math.max(root.data, Math.max(x, y));
+    }
 }
