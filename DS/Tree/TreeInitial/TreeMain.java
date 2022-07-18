@@ -51,7 +51,8 @@ public class TreeMain {
         t2.postOrderTraversal(root);
         System.out.print("\nInorder: ");
         t2.inOrderTraversal(root);
-
+        System.out.println();
+        System.out.println("Largest node in tree: "+t2.largestNodeInTree(root));
 
 //        TreeNode<Integer> root = new TreeNode<>(2);
 //        TreeNode<Integer> n1 = new TreeNode<>(99);
