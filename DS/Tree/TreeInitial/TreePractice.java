@@ -50,5 +50,12 @@ public class TreePractice {
         return NumberOfLeafNodes(root.left) + NumberOfLeafNodes(root.right);
 
     }
+    public void depthK(TreeNode<Integer> root, int k){
+        if(root == null) return;
+        if(k == 0) System.out.println(root.data);
+
+        depthK(root.left, k-1);
+        depthK(root.right, k-1);
+    }
 
 }
