@@ -42,4 +42,13 @@ public class TreePractice {
         if(root == null) return 0;
         return Math.max(heightOfTree(root.left), heightOfTree(root.right)) + 1;
     }
+    /*Number of leaf nodes-- */
+    //nodes that don't have any children are leaf nodes
+    public int NumberOfLeafNodes(TreeNode<Integer> root){
+        if( root == null) return 0;
+        if(root.left == null && root.right == null) return 1;
+        return NumberOfLeafNodes(root.left) + NumberOfLeafNodes(root.right);
+
+    }
+
 }
