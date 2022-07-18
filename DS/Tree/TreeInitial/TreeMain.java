@@ -54,7 +54,7 @@ public class TreeMain {
         //------------------ DEPTH k ------------------------------------
         Scanner sc = new Scanner(System.in);
         printTreeNodes(root);
-        System.out.println("At what depth do u want to print the nodes: ");
+        System.out.println("Print nodes at what depth?: ");
         t2.depthK(root, sc.nextInt());
 
 
