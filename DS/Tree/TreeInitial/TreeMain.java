@@ -48,6 +48,9 @@ public class TreeMain {
         //--------------------HEIGHT OF TREE ---------------------------------
         System.out.println(t2.heightOfTree(root));
 
+        //------------------LEAF NODES IN TREE -----------------------------
+        System.out.println(t2.NumberOfLeafNodes(root));
+
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
 //        t2.preOrderTraversal(root);
