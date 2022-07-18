@@ -46,10 +46,17 @@ public class TreeMain {
         TreePractice t2 = new TreePractice();
         TreeNode<Integer> root = treeInput(true, 0, true);
         //--------------------HEIGHT OF TREE ---------------------------------
-        System.out.println(t2.heightOfTree(root));
+        //System.out.println(t2.heightOfTree(root));
 
         //------------------LEAF NODES IN TREE -----------------------------
-        System.out.println(t2.NumberOfLeafNodes(root));
+        //System.out.println(t2.NumberOfLeafNodes(root));
+
+        //------------------ DEPTH k ------------------------------------
+        Scanner sc = new Scanner(System.in);
+        printTreeNodes(root);
+        System.out.println("At what depth do u want to print the nodes: ");
+        t2.depthK(root, sc.nextInt());
+
 
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
