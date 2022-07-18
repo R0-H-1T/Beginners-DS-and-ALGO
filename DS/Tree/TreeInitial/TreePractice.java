@@ -38,4 +38,8 @@ public class TreePractice {
 
         return Math.max(root.data, Math.max(x, y));
     }
+    public int heightOfTree(TreeNode<Integer> root){
+        if(root == null) return 0;
+        return Math.max(heightOfTree(root.left), heightOfTree(root.right)) + 1;
+    }
 }
