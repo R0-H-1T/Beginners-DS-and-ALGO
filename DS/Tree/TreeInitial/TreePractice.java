@@ -57,5 +57,13 @@ public class TreePractice {
         depthK(root.left, k-1);
         depthK(root.right, k-1);
     }
+    //---------------------------------- LEVEL: 2 -----------------------------
+    public boolean isBalancedTree(TreeNode<Integer> root){
+        if(root == null) return true;
+        int leftHeight = heightOfTree(root.left);
+        int rightHeight = heightOfTree(root.right);
+        if(Math.abs(leftHeight - rightHeight) > 1) return false;
+        return isBalancedTree(root.left) && isBalancedTree(root.right);
+    }
 
 }
