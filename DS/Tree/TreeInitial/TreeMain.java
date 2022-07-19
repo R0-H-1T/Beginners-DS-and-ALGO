@@ -52,10 +52,14 @@ public class TreeMain {
         //System.out.println(t2.NumberOfLeafNodes(root));
 
         //------------------ DEPTH k ------------------------------------
-        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner(System.in);
+//        printTreeNodes(root);
+//        System.out.println("Print nodes at what depth?: ");
+//        t2.depthK(root, sc.nextInt());
+
+        //-------------------BALANCED TREE -------------------------
         printTreeNodes(root);
-        System.out.println("Print nodes at what depth?: ");
-        t2.depthK(root, sc.nextInt());
+        System.out.println(t2.isBalancedTree(root));
 
 
         //---------------TRAVERSALS--------------------
