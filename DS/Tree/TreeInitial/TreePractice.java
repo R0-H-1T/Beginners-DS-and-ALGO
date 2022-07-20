@@ -65,5 +65,29 @@ public class TreePractice {
         if(Math.abs(leftHeight - rightHeight) > 1) return false;
         return isBalancedTree(root.left) && isBalancedTree(root.right);
     }
+    //better time complexity for balanced tree->
+    public TreeBal isBalancedTreeOptimized(TreeNode<Integer> root){
+        TreeBal leftTree = isBalancedTreeOptimized(root.left);
+        TreeBal rightTree = isBalancedTreeOptimized(root.right);
+        int leftHeight = leftTree.height;
+        int rightHeight = rightTree.height;
+        boolean isBalLeft = leftTree.isBal;
+        boolean isBalRight = rightTree.isBal;
+        int finalHeight = 1 + Math.max(leftHeight, rightHeight);
+        boolean isBal = true;
+        if(Math.abs(leftHeight - rightHeight) > 1) isBal = false;
+        if(!isBalLeft || !isBalRight) isBal = false;
+        TreeBal res = new TreeBal(finalHeight, isBal);
+        return res;
+    }
 
+}
+
+class TreeBal {
+    int height;
+    boolean isBal;
+    TreeBal(int h, boolean isBal){
+        this.height = h;
+        this.isBal = isBal;
+    }
 }
