@@ -59,8 +59,8 @@ public class TreeMain {
 
         //-------------------BALANCED TREE -------------------------
         printTreeNodes(root);
-        System.out.println(t2.isBalancedTree(root));
-
+        System.out.println(t2.isBalancedTreeOptimized(root).isBal); //optimizes time complexity
+            // O(n);
 
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
