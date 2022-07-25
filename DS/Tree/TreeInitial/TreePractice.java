@@ -97,7 +97,7 @@ public class TreePractice {
 
         return Math.max(diameter, Math.max(leftDiameter, rightDiameter));
     }
-    //optimzed solution for findind the diamter
+    //optimized solution for finding the diameter
     public TreeDiameter diameterOfTreeOptimized(TreeNode<Integer> root){
         if(root == null) return new TreeDiameter(0, 0);
         TreeDiameter tRight = diameterOfTreeOptimized(root.left);
