@@ -105,7 +105,7 @@ public class TreePractice {
         int diameter = 1 + tRight.height + tLeft.height;
 
         int res = Math.max(diameter, Math.max(tRight.diameter, tLeft.diameter));
-        return new TreeDiameter(diameter, res);
+        return new TreeDiameter(1 + Math.max(tLeft.height, tRight.height), res);
     }
 }
 
