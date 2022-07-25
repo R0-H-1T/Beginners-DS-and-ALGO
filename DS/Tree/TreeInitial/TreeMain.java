@@ -58,9 +58,13 @@ public class TreeMain {
 //        t2.depthK(root, sc.nextInt());
 
         //-------------------BALANCED TREE -------------------------
-        printTreeNodes(root);
-        System.out.println(t2.isBalancedTreeOptimized(root).isBal); //optimizes time complexity
+        //printTreeNodes(root);
+        //System.out.println(t2.isBalancedTreeOptimized(root).isBal); //optimizes time complexity
             // O(n);
+
+        //-------------------DIAMETER OF TREE -----------------------------------
+        printTreeNodes(root);
+        System.out.println(t2.diameterOfTree(root));
 
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
