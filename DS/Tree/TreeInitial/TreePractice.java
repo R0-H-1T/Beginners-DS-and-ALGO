@@ -85,7 +85,7 @@ public class TreePractice {
         return new TreeBal(finalHeight, isBal);
     }
 
-    //diameter of a tree - the longest node from right to left
+    //diameter of a tree - finding the max number of nodes from left to right
     public int diameterOfTree(TreeNode<Integer> root){
         if(root == null) return 0;
         int leftHeight = heightOfTree(root.left);
