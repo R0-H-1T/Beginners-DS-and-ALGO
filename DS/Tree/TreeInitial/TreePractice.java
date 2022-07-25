@@ -1,5 +1,7 @@
 package com.DSA.DS.Tree.TreeInitial;
 
+import com.sun.source.tree.Tree;
+
 public class TreePractice {
     //count number of nodes in the tree
     public int numberOfNodes(TreeNode<Integer> root){
@@ -82,8 +84,29 @@ public class TreePractice {
         if(!isBalLeft || !isBalRight) isBal = false;
         return new TreeBal(finalHeight, isBal);
     }
-    //leetcode questions
 
+    //diameter of a tree - the longest node from right to left
+    public int diameterOfTree(TreeNode<Integer> root){
+        if(root == null) return 0;
+        int leftHeight = heightOfTree(root.left);
+        int rightHeight = heightOfTree(root.right);
+        int diameter = 1 + leftHeight + rightHeight;
+
+        int leftDiameter = diameterOfTree(root.left);
+        int rightDiameter = diameterOfTree(root.right);
+
+        return Math.max(diameter, Math.max(leftDiameter, rightDiameter));
+    }
+    //optimzed solution for findind the diamter
+    public TreeDiameter diameterOfTreeOptimized(TreeNode<Integer> root){
+        if(root == null) return new TreeDiameter(0, 0);
+        TreeDiameter tRight = diameterOfTreeOptimized(root.left);
+        TreeDiameter tLeft = diameterOfTreeOptimized(root.right);
+        int diameter = 1 + tRight.height + tLeft.height;
+
+        int res = Math.max(diameter, Math.max(tRight.diameter, tLeft.diameter));
+        return new TreeDiameter(diameter, res);
+    }
 }
 
 class TreeBal {
@@ -92,5 +115,12 @@ class TreeBal {
     TreeBal(int h, boolean isBal){
         this.height = h;
         this.isBal = isBal;
+    }
+}
+class TreeDiameter {
+    int height, diameter;
+    TreeDiameter(int h, int dia){
+        height = h;
+        diameter = dia;
     }
 }
