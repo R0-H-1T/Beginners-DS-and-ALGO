@@ -2,6 +2,9 @@ package com.DSA.DS.Tree.TreeInitial;
 
 import com.sun.source.tree.Tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class TreePractice {
     //count number of nodes in the tree
     public int numberOfNodes(TreeNode<Integer> root){
@@ -32,6 +35,16 @@ public class TreePractice {
         inOrderTraversal(root.left);
         System.out.print(root.data+" ");
         inOrderTraversal(root.right);
+    }
+    public void levelOrderTraversal(TreeNode<Integer> root){
+        Queue<TreeNode<Integer>> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            TreeNode<Integer> r = q.remove();
+            System.out.println(r.data+" ");
+            if(r.left != null) q.add(r.left);
+            if(r.right != null) q.add(r.right);
+        }
     }
     public int largestNodeInTree(TreeNode<Integer> root){
         if(root == null) return 0;
