@@ -41,7 +41,7 @@ public class TreePractice {
         q.add(root);
         while(!q.isEmpty()){
             TreeNode<Integer> r = q.remove();
-            System.out.println(r.data+" ");
+            System.out.print(r.data+" ");
             if(r.left != null) q.add(r.left);
             if(r.right != null) q.add(r.right);
         }
