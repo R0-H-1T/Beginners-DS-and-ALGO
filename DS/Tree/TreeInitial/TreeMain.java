@@ -68,9 +68,13 @@ public class TreeMain {
         //System.out.println(t2.diameterOfTreeOptimized(root).diameter);
 
         //-------------------LEVEL ORDER TRAVERSAL -------------------------------------
-        printTreeNodes(root);
-        t2.levelOrderTraversal(root);
+        //printTreeNodes(root);
+        //t2.levelOrderTraversal(root);
 
+        //--------------------MIRROR A TREE --------------------------------------
+        printTreeNodes(root);
+        t2.mirrorTree(root);
+        printTreeNodes(root);
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
 //        t2.preOrderTraversal(root);
