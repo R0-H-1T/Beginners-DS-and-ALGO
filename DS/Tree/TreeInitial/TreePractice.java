@@ -4,6 +4,7 @@ import com.sun.source.tree.Tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class TreePractice {
     //count number of nodes in the tree
@@ -119,6 +120,15 @@ public class TreePractice {
 
         int res = Math.max(diameter, Math.max(tRight.diameter, tLeft.diameter));
         return new TreeDiameter(1 + Math.max(tLeft.height, tRight.height), res);
+    }
+    //mirroring a tree
+    public void mirrorTree(TreeNode<Integer> root){
+       if(root == null) return;
+       mirrorTree(root.left);
+       mirrorTree(root.right);
+       TreeNode<Integer> temp = root.left;
+       root.left = root.right;
+       root.right = temp;
     }
 }
 
