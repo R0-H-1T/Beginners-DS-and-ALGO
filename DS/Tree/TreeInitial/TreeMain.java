@@ -2,6 +2,7 @@ package com.DSA.DS.Tree.TreeInitial;
 
 import com.sun.source.tree.Tree;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TreeMain {
@@ -72,9 +73,18 @@ public class TreeMain {
         //t2.levelOrderTraversal(root);
 
         //--------------------MIRROR A TREE --------------------------------------
+        //printTreeNodes(root);
+        //t2.mirrorTree(root);
+        //printTreeNodes(root);
+
+        //+++++++++++++++++++++++++++++++++++++++ LEVEL 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        //---------------------- sum from root to leaf node == sum provided ?------------------------------------
         printTreeNodes(root);
-        t2.mirrorTree(root);
-        printTreeNodes(root);
+        ArrayList<Integer> list = new ArrayList<>();
+        t2.sumOfPathFromRootToLeaf(root, 12, list);
+
+        //
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
 //        t2.preOrderTraversal(root);
