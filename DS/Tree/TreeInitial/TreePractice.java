@@ -138,16 +138,16 @@ public class TreePractice {
         if(root == null) return;
 
         arr.add(root.data);
-        sum -= root.data;
         if(root.left == null && root.right == null){
+            sum -= root.data;
             if(sum == 0) {
                 for(int i : arr) System.out.print(i+" ");
             }
             arr.remove(arr.size() - 1); //outside if-block
             return;
         }
-        sumOfPathFromRootToLeaf(root.left, sum, arr);
-        sumOfPathFromRootToLeaf(root.right, sum, arr);
+        sumOfPathFromRootToLeaf(root.left, sum-root.data, arr);
+        sumOfPathFromRootToLeaf(root.right, sum-root.data, arr);
         arr.remove(arr.size() - 1);  //arr size will be decremented
 
     }
