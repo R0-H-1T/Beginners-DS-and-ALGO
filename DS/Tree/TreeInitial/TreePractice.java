@@ -1,10 +1,9 @@
 package com.DSA.DS.Tree.TreeInitial;
 
+import com.DSA.DS.Array.Array;
 import com.sun.source.tree.Tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class TreePractice {
     //count number of nodes in the tree
@@ -130,6 +129,29 @@ public class TreePractice {
        root.left = root.right;
        root.right = temp;
     }
+
+    //----------------------------------- LEVEL 3 ------------------------------------
+
+    // path from root to leaf with a given sum
+    // (find out the path from root to leaf whose sum of all the nodes would be equal to sum provided)
+    public void sumOfPathFromRootToLeaf(TreeNode<Integer> root, int sum, ArrayList<Integer> arr){
+        if(root == null) return;
+
+        arr.add(root.data);
+        if(root.left == null && root.right == null){
+            sum -= root.data;
+            if(sum == 0) {
+                for(int i : arr) System.out.print(i+" ");
+            }
+            arr.remove(arr.size() - 1); //outside if-block
+            return;
+        }
+        sumOfPathFromRootToLeaf(root.left, sum-root.data, arr);
+        sumOfPathFromRootToLeaf(root.right, sum-root.data, arr);
+        arr.remove(arr.size() - 1);  //arr size will be decremented
+
+    }
+
 }
 
 class TreeBal {
