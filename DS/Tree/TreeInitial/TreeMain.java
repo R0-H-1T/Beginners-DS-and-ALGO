@@ -82,7 +82,7 @@ public class TreeMain {
         //---------------------- sum from root to leaf node == sum provided ?------------------------------------
         printTreeNodes(root);
         ArrayList<Integer> list = new ArrayList<>();
-        t2.sumOfPathFromRootToLeaf(root, 12, list);
+        t2.sumOfPathFromRootToLeaf(root, 16, list);
 
         //
         //---------------TRAVERSALS--------------------
