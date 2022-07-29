@@ -149,9 +149,7 @@ public class TreePractice {
         sumOfPathFromRootToLeaf(root.left, sum-root.data, arr);
         sumOfPathFromRootToLeaf(root.right, sum-root.data, arr);
         arr.remove(arr.size() - 1);  //arr size will be decremented
-
     }
-
 }
 
 class TreeBal {
