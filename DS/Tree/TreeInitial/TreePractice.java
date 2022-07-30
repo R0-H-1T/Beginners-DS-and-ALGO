@@ -150,6 +150,17 @@ public class TreePractice {
         sumOfPathFromRootToLeaf(root.right, sum-root.data, arr);
         arr.remove(arr.size() - 1);  //arr size will be decremented
     }
+
+    // print nodes at distance k from the given nodes;
+    public void printNodesAtDistKFromGivenNode(TreeNode<Integer> root, TreeNode<Integer> node, int k){
+
+    }
+    public int KDistance(TreeNode<Integer> root, int k, TreeNode<Integer> node){
+        int leftDist = KDistance(root.left, k, node);
+        if(leftDist != 1){
+            if(leftDist + 1 == k) System.out.println(" "+root.data);
+        }
+    }
 }
 
 class TreeBal {
