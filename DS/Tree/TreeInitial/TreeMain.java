@@ -80,9 +80,14 @@ public class TreeMain {
         //+++++++++++++++++++++++++++++++++++++++ LEVEL 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         //---------------------- sum from root to leaf node == sum provided ?------------------------------------
+//        printTreeNodes(root);
+//        ArrayList<Integer> list = new ArrayList<>();
+//        t2.sumOfPathFromRootToLeaf(root, 16, list);
+
+        //--------------------- print all nodes at distance k from a given node ------------------
         printTreeNodes(root);
-        ArrayList<Integer> list = new ArrayList<>();
-        t2.sumOfPathFromRootToLeaf(root, 16, list);
+        TreeNode<Integer> node = new TreeNode(6);
+        t2.KDistance(root, 2, node);
 
         //
         //---------------TRAVERSALS--------------------
