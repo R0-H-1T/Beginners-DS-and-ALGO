@@ -65,6 +65,7 @@ public class TreePractice {
         return NumberOfLeafNodes(root.left) + NumberOfLeafNodes(root.right);
 
     }
+    //prints all the nodes at k distance from root node of a tree
     public void depthK(TreeNode<Integer> root, int k){
         if(root == null) return;
         if(k == 0) System.out.println(root.data);
@@ -151,15 +152,23 @@ public class TreePractice {
         arr.remove(arr.size() - 1);  //arr size will be decremented
     }
 
-    // print nodes at distance k from the given nodes;
-    public void printNodesAtDistKFromGivenNode(TreeNode<Integer> root, TreeNode<Integer> node, int k){
-
-    }
+    // print nodes at distance k from the given node;
     public int KDistance(TreeNode<Integer> root, int k, TreeNode<Integer> node){
+        if(root == null) return -1;
+        if(root.data == node.data) depthK(root, k);
         int leftDist = KDistance(root.left, k, node);
-        if(leftDist != 1){
-            if(leftDist + 1 == k) System.out.println(" "+root.data);
+        if(leftDist != -1){
+            if(leftDist + 1 == k) System.out.print(" "+root.data);
+            else depthK(root.right, k-leftDist-2);
+            return leftDist + 1;
         }
+        int rightDist = KDistance(root.right, k, node);
+        if(rightDist != -1){
+            if(rightDist + 1 == k) System.out.print(" "+root.data);
+            else depthK(root.left, k-rightDist-2);
+            return rightDist + 1;
+        }
+        return -1;
     }
 }
 
