@@ -68,7 +68,7 @@ public class TreePractice {
     //prints all the nodes at k distance from root node of a tree
     public void depthK(TreeNode<Integer> root, int k){
         if(root == null) return;
-        if(k == 0) System.out.println(root.data);
+        if(k == 0) System.out.print(root.data+" ");
 
         depthK(root.left, k-1);
         depthK(root.right, k-1);
@@ -155,7 +155,10 @@ public class TreePractice {
     // print nodes at distance k from the given node;
     public int KDistance(TreeNode<Integer> root, int k, TreeNode<Integer> node){
         if(root == null) return -1;
-        if(root.data == node.data) depthK(root, k);
+        if(root.data == node.data) {
+            depthK(root, k);
+            return 0;
+        }
         int leftDist = KDistance(root.left, k, node);
         if(leftDist != -1){
             if(leftDist + 1 == k) System.out.print(" "+root.data);
@@ -170,7 +173,7 @@ public class TreePractice {
         }
         return -1;
     }
-}
+}//1 12 22
 
 class TreeBal {
     int height;
