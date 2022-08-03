@@ -173,7 +173,39 @@ public class TreePractice {
         }
         return -1;
     }
-}//1 12 22
+
+    //print zigzag tree
+    /*
+
+     */
+    public void printZigZag(TreeNode<Integer> root){
+        int counter = 1; //if node count is even
+        Queue<TreeNode<Integer>> q = new LinkedList<>();
+        Stack<TreeNode<Integer>> s = new Stack<>();
+        q.add(root);
+        q.add(null);
+        while(q.size() > 1) {
+            TreeNode<Integer> ele = q.remove();
+            if(ele == null){
+                if(counter % 2 != 0){
+                    while(!s.isEmpty()) System.out.println(s.pop().data+" ");
+                }
+                counter++;
+                q.add(null);
+                continue;
+            }
+            if(counter % 2 != 0) System.out.print(ele.data+" ");
+            if(ele.left != null){
+                q.add(ele);
+                if(counter % 2 != 0) s.add(ele.left);
+            }
+            if(ele.right != null){
+                q.add(ele);
+                if(counter % 2 != 0) s.add(ele.right);
+            }
+        }
+    }
+}
 
 class TreeBal {
     int height;
