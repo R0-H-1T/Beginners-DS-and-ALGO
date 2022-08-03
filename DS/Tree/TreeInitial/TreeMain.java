@@ -85,10 +85,13 @@ public class TreeMain {
 //        t2.sumOfPathFromRootToLeaf(root, 16, list);
 
         //--------------------- print all nodes at distance k from a given node ------------------
-        printTreeNodes(root);
-        TreeNode<Integer> node = new TreeNode(6);
-        t2.KDistance(root, 2, node);
+//        printTreeNodes(root);
+//        TreeNode<Integer> node = new TreeNode(6);
+//        t2.KDistance(root, 2, node);
 
+        //------------------------- print nodes of tree in zig-zag -------------first level left->right, second level right->left, third left->right....
+        printTreeNodes(root);
+        t2.printZigZag(root);
         //
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
