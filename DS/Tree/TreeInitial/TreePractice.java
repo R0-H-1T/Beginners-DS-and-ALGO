@@ -189,6 +189,7 @@ public class TreePractice {
             if(ele == null){
                 if(counter % 2 != 0){
                     while(!s.isEmpty()) System.out.println(s.pop().data+" ");
+                    s = new Stack<>();
                 }
                 counter++;
                 q.add(null);
