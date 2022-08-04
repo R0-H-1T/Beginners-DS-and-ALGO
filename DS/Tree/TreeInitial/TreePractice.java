@@ -188,7 +188,7 @@ public class TreePractice {
             TreeNode<Integer> ele = q.remove();
             if(ele == null){
                 if(counter % 2 != 0){
-                    while(!s.isEmpty()) System.out.println(s.pop().data+" ");
+                    while(!s.isEmpty()) System.out.print(s.pop().data+" ");
                     s = new Stack<>();
                 }
                 counter++;
@@ -197,11 +197,11 @@ public class TreePractice {
             }
             if(counter % 2 != 0) System.out.print(ele.data+" ");
             if(ele.left != null){
-                q.add(ele);
+                q.add(ele.left);
                 if(counter % 2 != 0) s.add(ele.left);
             }
             if(ele.right != null){
-                q.add(ele);
+                q.add(ele.right);
                 if(counter % 2 != 0) s.add(ele.right);
             }
         }
