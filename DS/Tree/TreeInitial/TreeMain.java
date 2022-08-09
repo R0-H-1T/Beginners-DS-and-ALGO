@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class TreeMain {
 
-    public static TreeNode<Integer> treeInput(boolean isRoot, int parent_data, boolean isLeft){
+    public /*static for treeMain */TreeNode<Integer> treeInput(boolean isRoot, int parent_data, boolean isLeft){
         if(isRoot) System.out.println("Enter the data of the root: ");
         else if(isLeft) System.out.println("Enter the data for the left node of "+parent_data+": ");
         else System.out.println("Enter the data for the right node of "+parent_data+": ");
@@ -27,7 +27,7 @@ public class TreeMain {
         return newNode;
     }
 
-    public static void printTreeNodes(TreeNode<Integer> root){
+    public /*static*/ void printTreeNodes(TreeNode<Integer> root){
         if(root == null) return;
         System.out.print(root.data+": ");
         if(root.left == null && root.right == null) System.out.print("null");
@@ -45,7 +45,7 @@ public class TreeMain {
         //printTreeNodes(root);
 
         TreePractice t2 = new TreePractice();
-        TreeNode<Integer> root = treeInput(true, 0, true);
+        //TreeNode<Integer> root = treeInput(true, 0, true);
         //--------------------HEIGHT OF TREE ---------------------------------
         //System.out.println(t2.heightOfTree(root));
 
@@ -90,8 +90,8 @@ public class TreeMain {
 //        t2.KDistance(root, 2, node);
 
         //------------------------- print nodes of tree in zig-zag -------------first level left->right, second level right->left, third left->right....
-        printTreeNodes(root);
-        t2.printZigZag(root);
+        //printTreeNodes(root);
+        //t2.printZigZag(root);
         //
         //---------------TRAVERSALS--------------------
 //        System.out.print("Preorder: ");
