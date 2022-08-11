@@ -21,7 +21,7 @@ public class TreeBSTMain {
             printInRange(root.right, n1, n2);
         }
     }
-    // convert an array to BST
+    // convert an array to BST , time complexity O(n)
     public static TreeNode<Integer> sortedArrayInBST(int arr[], int start, int end){
         if(start > end) return null;
         int mid = (start + end)/2;
@@ -37,8 +37,16 @@ public class TreeBSTMain {
         //System.out.println(binarySearch(root, 4));
         //printInRange(root, 2, 6);
 
-        int[] arr = {5, 8, 12, 17, 22, 26};
-        t.printTreeNodes(sortedArrayInBST(arr, 0, arr.length - 1));
+        //int[] arr = {5, 8, 12, 17, 22, 26};
+        //t.printTreeNodes(sortedArrayInBST(arr, 0, arr.length - 1));
+
+        //------------------------------------------LEVEL 1 ---------------------------------------------
+        // isBST
+        TreeBST_Practice tbstp = new TreeBST_Practice();
+        TreeNode<Integer> root = t.treeInput(true, 0, true);
+        t.printTreeNodes(root);
+        System.out.println(tbstp.isBST(root));
+
     }
 
 }
