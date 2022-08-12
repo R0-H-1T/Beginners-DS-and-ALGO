@@ -21,10 +21,9 @@ public class TreeBST_Practice {
         if(root == null) return true;
         int maxLeft = highestNodeInTree(root.left);
         int minRight = lowestNodeInTree(root.right);
-        if(maxLeft > root.data || minRight < root.data) return false;
+        if(maxLeft > root.data && minRight < root.data) return false;
         boolean leftIsBST = isBST(root.left);
         boolean rightIsBST = isBST(root.right);
-        if(leftIsBST == false || rightIsBST == false) return false;
-        return true;
+        return leftIsBST && rightIsBST;
     }
 }
