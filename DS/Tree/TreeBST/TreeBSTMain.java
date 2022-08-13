@@ -46,9 +46,7 @@ public class TreeBSTMain {
 //        TreeNode<Integer> root = t.treeInput(true, 0, true);
 //        t.printTreeNodes(root);
 //        System.out.println(tbstp.isBST(root));
-        boolean surprise = false;
-        boolean gift = true;
-        System.out.println(!surprise && gift);
+
     }
 
 }
