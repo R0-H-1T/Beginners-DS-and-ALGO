@@ -26,4 +26,12 @@ public class TreeBST_Practice {
         boolean rightIsBST = isBST(root.right);
         return leftIsBST && rightIsBST;
     }
+    // O(n) solution ->
+    public boolean optimizedIsBST(TreeNode<Integer> root, int min, int max){
+        if(root == null) return true;
+        if(root.data < min && root.data > max) return false;
+        boolean leftSubtree = optimizedIsBST(root.left, min, root.data-1);
+        boolean rightSubtree = optimizedIsBST(root.right, root.data+1, max);
+        return leftSubtree && rightSubtree;
+    }
 }
