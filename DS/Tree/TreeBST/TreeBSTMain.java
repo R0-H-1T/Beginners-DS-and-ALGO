@@ -32,6 +32,8 @@ public class TreeBSTMain {
     }
     public static void main(String[] args){
         TreeMain t = new TreeMain();
+        TreeBST_Practice tbstp = new TreeBST_Practice();
+
         //TreeNode<Integer> root = t.treeInput(true, 0, true);
         //t.printTreeNodes(root);
         //System.out.println(binarySearch(root, 4));
@@ -42,11 +44,11 @@ public class TreeBSTMain {
 
         //------------------------------------------LEVEL 1 ---------------------------------------------
         // isBST
-//        TreeBST_Practice tbstp = new TreeBST_Practice();
-//        TreeNode<Integer> root = t.treeInput(true, 0, true);
-//        t.printTreeNodes(root);
-//        System.out.println(tbstp.isBST(root));
+        TreeNode<Integer> root = t.treeInput(true, 0, true);
+        t.printTreeNodes(root);
+        System.out.println(tbstp.optimizedIsBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+
+        // optimizedIsBST
 
     }
-
 }
