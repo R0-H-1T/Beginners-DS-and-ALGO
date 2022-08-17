@@ -43,12 +43,16 @@ public class TreeBSTMain {
         //t.printTreeNodes(sortedArrayInBST(arr, 0, arr.length - 1));
 
         //------------------------------------------LEVEL 1 ---------------------------------------------
-        // isBST
+        // isBST ||  optimizedIsBST
+        //TreeNode<Integer> root = t.treeInput(true, 0, true);
+        //t.printTreeNodes(root);
+        //System.out.println(tbstp.optimizedIsBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+
+        // pair sum
         TreeNode<Integer> root = t.treeInput(true, 0, true);
         t.printTreeNodes(root);
-        System.out.println(tbstp.optimizedIsBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+        tbstp.printPairs(root, 20);
 
-        // optimizedIsBST
 
     }
 }
