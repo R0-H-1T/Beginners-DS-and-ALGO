@@ -1,6 +1,10 @@
 package com.DSA.DS.Tree.TreeBST;
 
 import com.DSA.DS.Tree.TreeInitial.TreeNode;
+import com.DSA.DS.Tree.TreeInitial.TreePractice;
+import com.sun.source.tree.Tree;
+
+import java.util.Stack;
 
 public class TreeBST_Practice {
     public int highestNodeInTree(TreeNode<Integer> root){
@@ -33,5 +37,59 @@ public class TreeBST_Practice {
         boolean leftSubtree = optimizedIsBST(root.left, min, root.data-1);
         boolean rightSubtree = optimizedIsBST(root.right, root.data+1, max);
         return leftSubtree && rightSubtree;
+    }
+    // pair sum solution
+    // next greater elem => rightmost elem of left tree
+    public void printPairs(TreeNode<Integer> root, int sum){
+        TreePractice t = new TreePractice();
+        int n = t.numberOfNodes(root);
+        int count = 0;
+        Stack<TreeNode<Integer>> in = new Stack<>();
+        Stack<TreeNode<Integer>> revin = new Stack<>();
+        TreeNode<Integer> temp = root;
+        while(temp != null){
+            in.add(temp);
+            temp = temp.left;
+        }
+        temp = root;
+        while(temp != null){
+            revin.add(temp);
+            temp = temp.right;
+        }
+        while(count <= n-1){
+            if(in.peek().data + revin.peek().data == sum){
+                System.out.println(in.peek().data + " " + revin.peek().data);
+                TreeNode<Integer> inPop = in.pop();
+                count++;
+                temp = inPop.right;
+                while(temp != null){
+                    in.push(temp);
+                    temp = temp.left;
+                }
+                TreeNode<Integer> revInPop = revin.pop();
+                count++;
+                temp = revInPop.left;
+                while(temp != null){
+                    revin.push(temp);
+                    temp = temp.right;
+                }
+            }else if(in.peek().data + revin.peek().data > sum){
+                TreeNode<Integer> revInPop = revin.pop();
+                count++;
+                temp = revInPop.left;
+                while(temp != null){
+                    revin.push(temp);
+                    temp = temp.right;
+                }
+            }else{
+                TreeNode<Integer> inPop = in.pop();
+                count++;
+                temp = inPop.right;
+                while(temp != null){
+                    in.push(temp);
+                    temp = temp.left;
+                }
+            }
+        }
     }
 }
