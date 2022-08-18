@@ -7,6 +7,7 @@ import com.sun.source.tree.Tree;
 import java.util.Stack;
 
 public class TreeBST_Practice {
+    int finalMax = 0;
     public int highestNodeInTree(TreeNode<Integer> root){
         if(root == null) return Integer.MIN_VALUE;
         int leftMax = highestNodeInTree(root.left);
@@ -91,5 +92,41 @@ public class TreeBST_Practice {
                 }
             }
         }
+    }
+
+    //------------------------------------------- LEVEL 2 -----------------------------------------------------
+    /*
+    max sum BST - find the max sum of the all nodes of a BST from a binary tree/binary search tree
+    SOLUTION 1 ------ O(n^2) approach :(
+    => go on each node and check whether it is a BST, if is store it and check against the stored value
+    Steps =>
+    1. check if the tree is BST
+    2. if is, calculate sum and store it
+     */
+    //SOLUTION 2 ---------
+
+    public BSTReturn maxSum(TreeNode<Integer> root){
+        if(root == null) return new BSTReturn(Integer.MAX_VALUE, Integer.MAX_VALUE, 0 ,true);
+        BSTReturn leftSub = maxSum(root.left);
+        BSTReturn rightSub = maxSum(root.right);
+        int max = Math.max(root.data, Math.max(leftSub.max, rightSub.max));
+        int min = Math.min(root.data, Math.min(leftSub.min, rightSub.min));
+        boolean BSTFull = leftSub.isBST && rightSub.isBST && leftSub.max < root.data && rightSub.min > root.data;
+        int finalSum = leftSub.sum + rightSub.sum + root.data;
+        if(BSTFull) finalMax = Math.max(finalSum, finalMax);
+        return new BSTReturn(min, finalMax, finalSum, BSTFull);
+    }
+
+}
+
+class BSTReturn {
+    int min, max, sum;
+    boolean isBST;
+
+    public BSTReturn (int min, int max, int sum , boolean isBST) {
+        this.min = min;
+        this.max = max;
+        this.sum = sum;
+        this.isBST = isBST;
     }
 }
