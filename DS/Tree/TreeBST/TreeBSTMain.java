@@ -56,7 +56,7 @@ public class TreeBSTMain {
         //------------------------------------------LEVEL 2 ---------------------------------------------
         TreeNode<Integer> root = t.treeInput(true, 0, true);
         t.printTreeNodes(root);
-        tbstp.maxSum(root);
-        System.out.println(tbstp.finalMax);
+        tbstp.maxSumm(root);
+        System.out.println(tbstp.maxSum);
     }
 }
