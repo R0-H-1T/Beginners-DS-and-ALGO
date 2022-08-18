@@ -49,10 +49,14 @@ public class TreeBSTMain {
         //System.out.println(tbstp.optimizedIsBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
 
         // pair sum
+//        TreeNode<Integer> root = t.treeInput(true, 0, true);
+//        t.printTreeNodes(root);
+//        tbstp.printPairs(root, 20);
+
+        //------------------------------------------LEVEL 2 ---------------------------------------------
         TreeNode<Integer> root = t.treeInput(true, 0, true);
         t.printTreeNodes(root);
-        tbstp.printPairs(root, 20);
-
-
+        tbstp.maxSum(root);
+        System.out.println(tbstp.finalMax);
     }
 }
