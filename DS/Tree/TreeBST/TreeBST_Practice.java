@@ -7,7 +7,7 @@ import com.sun.source.tree.Tree;
 import java.util.Stack;
 
 public class TreeBST_Practice {
-    int finalMax = 0;
+    int maxSum = 0;
     public int highestNodeInTree(TreeNode<Integer> root){
         if(root == null) return Integer.MIN_VALUE;
         int leftMax = highestNodeInTree(root.left);
@@ -104,17 +104,21 @@ public class TreeBST_Practice {
     2. if is, calculate sum and store it
      */
     //SOLUTION 2 ---------
-
-    public BSTReturn maxSum(TreeNode<Integer> root){
-        if(root == null) return new BSTReturn(Integer.MAX_VALUE, Integer.MAX_VALUE, 0 ,true);
-        BSTReturn leftSub = maxSum(root.left);
-        BSTReturn rightSub = maxSum(root.right);
+    /*
+        min -   returning the min from the left and the right subtree to root, mainly to check
+                if tree is binary or not (min if the right subtree)
+        max -   storing the
+     */
+    public BSTReturn maxSumm(TreeNode<Integer> root){
+        if(root == null) return new BSTReturn(Integer.MAX_VALUE, Integer.MIN_VALUE, 0 ,true);
+        BSTReturn leftSub = maxSumm(root.left);
+        BSTReturn rightSub = maxSumm(root.right);
         int max = Math.max(root.data, Math.max(leftSub.max, rightSub.max));
         int min = Math.min(root.data, Math.min(leftSub.min, rightSub.min));
         boolean BSTFull = leftSub.isBST && rightSub.isBST && leftSub.max < root.data && rightSub.min > root.data;
         int finalSum = leftSub.sum + rightSub.sum + root.data;
-        if(BSTFull) finalMax = Math.max(finalSum, finalMax);
-        return new BSTReturn(min, finalMax, finalSum, BSTFull);
+        if(BSTFull) maxSum = Math.max(maxSum, finalSum);
+        return new BSTReturn(min, max, finalSum, BSTFull);
     }
 
 }
