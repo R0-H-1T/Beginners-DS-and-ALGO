@@ -133,7 +133,13 @@ public class TreeBST_Practice {
         if(count == k) System.out.println(root.data);
         kthSmallest(root.right, k);
     }
-
+    public void kthLargest(TreeNode<Integer> root, int k){
+        if(root == null) return;
+        kthSmallest(root.right, k);
+        count++;
+        if(count == k) System.out.println(root.data);
+        kthSmallest(root.left, k);
+    }
 }
 
 class BSTReturn {
