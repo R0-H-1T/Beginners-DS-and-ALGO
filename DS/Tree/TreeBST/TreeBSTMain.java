@@ -3,6 +3,8 @@ package com.DSA.DS.Tree.TreeBST;
 import com.DSA.DS.Tree.TreeInitial.TreeMain;
 import com.DSA.DS.Tree.TreeInitial.TreeNode;
 
+import java.util.Scanner;
+
 
 //Time complexity of BST : O(n) - O(log(n)) height if tree
 // inorder traversal of BST will give u sorted elems  ( left -> root -> right )
@@ -58,7 +60,9 @@ public class TreeBSTMain {
         //------------------------------------------LEVEL 2 ---------------------------------------------
         TreeNode<Integer> root = t.treeInput(true, 0, true);
         t.printTreeNodes(root);
-        tbstp.maxSumm(root);
-        System.out.println(tbstp.maxSum);
+        //tbstp.maxSumm(root);
+        //System.out.println(tbstp.maxSum);
+        Scanner in = new Scanner(System.in);
+        tbstp.kthSmallest(root, in.nextInt());
     }
 }
