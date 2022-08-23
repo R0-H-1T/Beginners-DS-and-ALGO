@@ -5,6 +5,8 @@ import com.DSA.DS.Tree.TreeInitial.TreeNode;
 
 
 //Time complexity of BST : O(n) - O(log(n)) height if tree
+// inorder traversal of BST will give u sorted elems  ( left -> root -> right )
+//reverse inorder will sort elems in descending order  ( right -> root -> left )
 public class TreeBSTMain {
     public static boolean binarySearch(TreeNode<Integer> root, int n){
         if(root == null) return false;

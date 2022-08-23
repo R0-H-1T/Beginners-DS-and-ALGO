@@ -7,7 +7,7 @@ import com.sun.source.tree.Tree;
 import java.util.Stack;
 
 public class TreeBST_Practice {
-    int maxSum = 0;
+    int maxSum = 0, count = 0;
     public int highestNodeInTree(TreeNode<Integer> root){
         if(root == null) return Integer.MIN_VALUE;
         int leftMax = highestNodeInTree(root.left);
@@ -95,6 +95,7 @@ public class TreeBST_Practice {
     }
 
     //------------------------------------------- LEVEL 2 -----------------------------------------------------
+    //BST L21
     /*
     max sum BST - find the max sum of the all nodes of a BST from a binary tree/binary search tree
     SOLUTION 1 ------ O(n^2) approach :(
@@ -119,6 +120,18 @@ public class TreeBST_Practice {
         int finalSum = leftSub.sum + rightSub.sum + root.data;
         if(BSTFull) maxSum = Math.max(maxSum, finalSum);
         return new BSTReturn(min, max, finalSum, BSTFull);
+    }
+
+    /*
+            Kth smallest element in binary search tree
+            1st smallest elem in tree, 4th smallest elem in tree, 9th smallest elem in tree
+     */
+    public void kthSmallest(TreeNode<Integer> root, int k){
+        if(root == null) return;
+        kthSmallest(root.left, k);
+        count++;
+        if(count == k) System.out.println(root.data);
+        kthSmallest(root.right, k);
     }
 
 }
