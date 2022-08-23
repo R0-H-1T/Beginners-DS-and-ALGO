@@ -64,5 +64,7 @@ public class TreeBSTMain {
         //System.out.println(tbstp.maxSum);
         Scanner in = new Scanner(System.in);
         tbstp.kthSmallest(root, in.nextInt());
+        tbstp.kthLargest(root, in.nextInt());
+
     }
 }
