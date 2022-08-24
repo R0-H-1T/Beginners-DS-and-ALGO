@@ -62,9 +62,16 @@ public class TreeBSTMain {
         t.printTreeNodes(root);
         //tbstp.maxSumm(root);
         //System.out.println(tbstp.maxSum);
-        Scanner in = new Scanner(System.in);
-        tbstp.kthSmallest(root, in.nextInt());
-        tbstp.kthLargest(root, in.nextInt());
+
+        // kth largest && smallest
+        //Scanner in = new Scanner(System.in);
+        //tbstp.kthSmallest(root, in.nextInt());
+        //tbstp.kthLargest(root, in.nextInt());
+
+        // nodes from root to given node
+        for(int i : tbstp.pathFromToRootToGivenNode(root, 11)) {
+            System.out.print(i+" ");
+        }
 
     }
 }
