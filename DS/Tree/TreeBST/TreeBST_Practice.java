@@ -1,9 +1,12 @@
 package com.DSA.DS.Tree.TreeBST;
 
+import com.DSA.DS.Array.Array;
 import com.DSA.DS.Tree.TreeInitial.TreeNode;
 import com.DSA.DS.Tree.TreeInitial.TreePractice;
 import com.sun.source.tree.Tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class TreeBST_Practice {
@@ -95,6 +98,58 @@ public class TreeBST_Practice {
     }
 
     //------------------------------------------- LEVEL 2 -----------------------------------------------------
+
+
+    /*
+           Kth smallest element in binary search tree
+           1st smallest elem in tree, 4th smallest elem in tree, 9th smallest elem in tree
+    */
+    public void kthSmallest(TreeNode<Integer> root, int k){
+        if(root == null) return;
+        kthSmallest(root.left, k);
+        count++;
+        if(count == k) System.out.println(root.data);
+        kthSmallest(root.right, k);
+    }
+    public void kthLargest(TreeNode<Integer> root, int k){
+        if(root == null) return;
+        kthLargest(root.right, k);
+        count++;
+        if(count == k) System.out.println(root.data);
+        kthLargest(root.left, k);
+    }
+
+    /*
+
+        PATH FROM ROOT TO GIVEN NODE IN BST
+
+     */
+    public ArrayList<Integer> pathFromToRootToGivenNode(TreeNode<Integer> root, int n){
+        if(root == null) return null;
+
+        if(root.data == n){
+            ArrayList<Integer> ans = new ArrayList<>();
+            ans.add(root.data);
+            return ans;
+        }
+        ArrayList<Integer> left = pathFromToRootToGivenNode(root.left, n);
+        ArrayList<Integer> right = pathFromToRootToGivenNode(root.right, n);
+
+        if(left != null) {
+            left.add(root.data);
+            return left;
+        } else if(right != null){
+            right.add(root.data);
+            return right;
+        }
+        return null;
+    }
+
+
+
+
+
+
     //BST L21
     /*
     max sum BST - find the max sum of the all nodes of a BST from a binary tree/binary search tree
@@ -122,25 +177,9 @@ public class TreeBST_Practice {
         return new BSTReturn(min, max, finalSum, BSTFull);
     }
 
-    /*
-            Kth smallest element in binary search tree
-            1st smallest elem in tree, 4th smallest elem in tree, 9th smallest elem in tree
-     */
-    public void kthSmallest(TreeNode<Integer> root, int k){
-        if(root == null) return;
-        kthSmallest(root.left, k);
-        count++;
-        if(count == k) System.out.println(root.data);
-        kthSmallest(root.right, k);
-    }
-    public void kthLargest(TreeNode<Integer> root, int k){
-        if(root == null) return;
-        kthLargest(root.right, k);
-        count++;
-        if(count == k) System.out.println(root.data);
-        kthLargest(root.left, k);
-    }
+
 }
+
 
 class BSTReturn {
     int min, max, sum;
