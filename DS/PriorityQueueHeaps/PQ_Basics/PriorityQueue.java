@@ -61,7 +61,31 @@ public class PriorityQueue {
         return heap.get(0).data;
     }
     public String removeMin() {
-        return "hello";
+        Element<String> ans = heap.get(0);
+        heap.set(0, heap.get(heap.size() - 1));
+        heap.remove(heap.size() - 1);
+
+        int parentIndex = 0;
+        int leftChild = 2*parentIndex+1, rightChild = 2*parentIndex+2;
+
+
+        while(leftChild < heap.size()) {
+            int minIndex = parentIndex;
+            if(heap.get(parentIndex).priority > heap.get(leftChild).priority) {
+                minIndex = leftChild;
+            }
+            if(rightChild < heap.size() && heap.get(parentIndex).priority > heap.get(rightChild).priority) {
+                minIndex = rightChild;
+            }
+            Element<String> temp = heap.get(parentIndex);
+            heap.set(parentIndex, heap.get(minIndex));
+            heap.set(minIndex, temp);
+            parentIndex = minIndex;
+            leftChild = 2*parentIndex + 1;
+            rightChild = 2*parentIndex + 1;
+        }
+
+        return ans.data;
     }
 
 }
