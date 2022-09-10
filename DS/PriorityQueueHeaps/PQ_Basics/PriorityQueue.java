@@ -34,10 +34,10 @@ public class PriorityQueue {
         heap = new ArrayList<>();
     }
     public boolean isEmpty() {
-        return true;
+        return heap.isEmpty();
     }
     public int size() {
-        return 0;
+        return heap.size();
     }
     public void insert(String data, int priority) {
         Element<String> x = new Element<String>(data, priority);
@@ -56,8 +56,9 @@ public class PriorityQueue {
             parentIndex = (childIndex - 1)/2;
         }
     }
-    public String getMin() {
-        return "hello";
+    public String getMin() throws PriorityQueueEmptyException{
+        if(heap.isEmpty()) throw new PriorityQueueEmptyException();
+        return heap.get(0).data;
     }
     public String removeMin() {
         return "hello";
