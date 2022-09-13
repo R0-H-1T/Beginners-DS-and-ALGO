@@ -22,14 +22,14 @@ package com.DSA.DS.PriorityQueueHeaps.PQ_Basics;
 
 import java.util.ArrayList;
 
-public class PriorityQueue {
+public class PriorityQueue<T> {
     //functions to implement =>  -------- [ FOR Min Heap]
         // 1. isEmpty()
         // 2. size()
         // 3. getMin()
         // 4. removeMin()
         // 5. insert()
-    ArrayList<Element<String>> heap;
+    ArrayList<Element<T>> heap;
     public PriorityQueue() {
         heap = new ArrayList<>();
     }
@@ -39,14 +39,14 @@ public class PriorityQueue {
     public int size() {
         return heap.size();
     }
-    public void insert(String data, int priority) {
-        Element<String> x = new Element<String>(data, priority);
+    public void insert(T data, int priority) {
+        Element<T> x = new Element<T>(data, priority);
         heap.add(x);
         int childIndex = heap.size() - 1;
         int parentIndex = (childIndex - 1)/2;
         while (childIndex > 0){
             if(heap.get(childIndex).priority < heap.get(parentIndex).priority) {
-                Element<String> temp = heap.get(parentIndex);
+                Element<T> temp = heap.get(parentIndex);
                 heap.set(parentIndex, heap.get(childIndex));
                 heap.set(childIndex, temp);
             } else {
@@ -56,12 +56,13 @@ public class PriorityQueue {
             parentIndex = (childIndex - 1)/2;
         }
     }
-    public String getMin() throws PriorityQueueEmptyException{
+    public T getMin() throws PriorityQueueEmptyException{
         if(heap.isEmpty()) throw new PriorityQueueEmptyException();
         return heap.get(0).data;
     }
-    public String removeMin() {
-        Element<String> ans = heap.get(0);
+    public T removeMin() throws PriorityQueueEmptyException{
+        if(heap.isEmpty()) throw new PriorityQueueEmptyException();
+        Element<T> ans = heap.get(0);
         heap.set(0, heap.get(heap.size() - 1));
         heap.remove(heap.size() - 1);
 
@@ -69,15 +70,16 @@ public class PriorityQueue {
         int leftChild = 2*parentIndex+1, rightChild = 2*parentIndex+2;
 
 
-        while(leftChild < heap.size()) {
-            int minIndex = parentIndex;
+        while(leftChild < heap.size()) { //leftChild is the index of the leftmost child in the tree && is compared to the size
+            int minIndex = parentIndex;     // of the array (if greater, then the loop will stop.)
             if(heap.get(parentIndex).priority > heap.get(leftChild).priority) {
                 minIndex = leftChild;
             }
             if(rightChild < heap.size() && heap.get(parentIndex).priority > heap.get(rightChild).priority) {
                 minIndex = rightChild;
             }
-            Element<String> temp = heap.get(parentIndex);
+            if(minIndex == parentIndex) break;
+            Element<T> temp = heap.get(parentIndex);
             heap.set(parentIndex, heap.get(minIndex));
             heap.set(minIndex, temp);
             parentIndex = minIndex;
